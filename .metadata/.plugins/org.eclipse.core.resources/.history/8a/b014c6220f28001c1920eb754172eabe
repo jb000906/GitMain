@@ -1,0 +1,17 @@
+package ex19thread;
+
+class ShowThread extends Thread{
+	String threadName;
+	public ShowThread(String name) {
+		threadName=name;
+	}
+}
+
+public class Ex01ThreadStart {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

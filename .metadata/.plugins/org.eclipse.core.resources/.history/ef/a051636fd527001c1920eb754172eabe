@@ -1,0 +1,106 @@
+package quiz;
+import java.util.InputMismatchException;
+/*
+ 게임설명 : 업다운게임을 메소드를 이용해 구현한다.
+컴퓨터는 1~100사이의 숫자 하나를 생성한다.
+총 시도횟수는 7번을 부여한다.
+사용자는 7번의 시도안에 숫자를 맞춰야 한다.
+사용자가 숫자를 입력했을때 컴퓨터는 높은지/낮은지 알려준다.
+7번안에 맞추면 성공, 맞추지 못하면 실패라고 출력한다.
+성공/실패 후 계속 할지를 물어보고 1이면 게임 재시작, 
+0이면 프로그램을 종료한다.
+함수를 사용하여 구현한다.
+무한루프에 빠지게 된다면 scan.nextLine()을 활용하여 
+버퍼에 남아있는 Enter키를 제거해주도록 하자.
+
+업다운 게임에 다음 조건에 맞는 예외처리 구문을 추가하시오.
+숫자입력시 1~100을 벗어난 경우 
+사용자정의 예외클래스를 통해 처리하시오
+클래스명 : NumberRangeException
+게임 재시작 / 종료 입력시 문자를 입력했을때 
+발생되는 예외를 처리하시오.
+
+ */
+import java.util.Scanner;
+
+class NumberRangeException extends Exception{
+	public NumberRangeException() {
+		super("[예외발생]1~100 내의 정수를 입력하세요");
+	}
+}
+
+public class QuUpDownGame {
+
+	public static void main(String[] args) throws NumberRangeException {
+		int computer=(int)((Math.random()*100)+1);
+		Scanner scanner = new Scanner(System.in);
+		int gameCount=0;
+		while(true)
+		{	
+			
+			System.out.print("1~100까지의 수를 입력하시오:");
+			int player=scanner.nextInt();
+			try {
+			if(player<1||player>100) {
+				NumberRangeException ex=new NumberRangeException();
+				throw ex;
+			}
+			}catch(NumberRangeException e) {
+				System.out.print("1~100까지의 수를 입력하시오:");
+			}
+			
+			if(!(player<1||player>100)) {
+			if(computer>player) System.out.println("up");
+			if(computer<player)System.out.println("down");
+			if(computer==player) {
+				System.out.println("정답입니다!");
+				System.out.print("게임재시작(1), 종료(0):");
+				int restart=0;
+				try{
+					restart=new Scanner(System.in).nextInt();
+				}catch(InputMismatchException e){
+					System.out.println("숫자를 입력하시오");
+					System.out.println(e.getMessage());
+				}
+				if(restart==0) {
+					System.out.println("종료되었습니다 감사합니다");
+					break;
+				}
+				else {
+					System.out.println("게임 재시작^^");
+					computer=(int)((Math.random()*100)+1);
+					gameCount=0;
+				}
+				}
+			gameCount++;
+			}
+			else {
+				System.out.println("잘못된 입력입니다");
+			}
+			if(gameCount>=7) {
+		 
+				System.out.println("패배하였습니다");
+				System.out.println("정답:"+computer);
+				System.out.print("게임재시작(1), 종료(0):");
+				int restart=0;
+				try{
+					restart=new Scanner(System.in).nextInt();
+				}catch(InputMismatchException e){
+					System.out.println("숫자를 입력하시오");
+					continue;
+				}
+				if(restart==0) {
+					System.out.println("종료되었습니다 감사합니다");
+					break;
+				}
+				else {
+					System.out.println("게임 재시작^^");
+					computer=(int)((Math.random()*100)+1);
+					gameCount=0;
+				}
+				}
+			}
+		}
+	}
+
+
