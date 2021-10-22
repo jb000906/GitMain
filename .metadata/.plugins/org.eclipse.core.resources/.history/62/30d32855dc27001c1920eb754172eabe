@@ -1,0 +1,22 @@
+package common;
+
+public class Student extends Person {
+	private String stNumber;
+
+	public Student(String name, int age, String stNumber) {
+		super(name, age);
+		this.stNumber = stNumber;
+	}
+	@Override
+	public String getInfo() {
+		// TODO Auto-generated method stub
+		return super.getInfo();
+	}
+	@Override
+	public void showInfo() {
+		// TODO Auto-generated method stub
+		super.showInfo();
+	}
+	
+	
+}

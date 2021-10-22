@@ -1,0 +1,17 @@
+package ex17collection;
+
+import java.util.HashSet;
+
+import common.Student;
+
+public class E04HashSet2 {
+	public static void main(String[] args) {
+		
+		HashSet<Student> hashSet=new HashSet<Student>();
+		
+		Student s1=new Student("정우성",40,"2000-01");
+		Student s2=new Student("정우성",42,"2000-02");
+		Student s3=new Student("정우성",45,"2000-03");
+	}
+
+}

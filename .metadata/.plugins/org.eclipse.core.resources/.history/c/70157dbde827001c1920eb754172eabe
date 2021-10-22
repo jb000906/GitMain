@@ -1,0 +1,13 @@
+package ex17collection;
+
+public class Ex04HashSet1 {
+
+	public static void main(String[] args) {
+		/*
+		 1]set컬렉션 생성
+		 */
+		
+
+	}
+
+}

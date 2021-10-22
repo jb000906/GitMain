@@ -1,0 +1,42 @@
+package ex17collection;
+
+import java.util.Date;
+import java.util.HashSet;
+
+import common.Teacher;
+
+public class Ex04HashSet1 {
+
+	public static void main(String[] args) {
+		/*
+		 1]set컬렉션 생성
+		 */
+		HashSet<Object> set=new HashSet<Object>();
+		
+		//2]다양한 객체 생성
+		String strObject1="JAVA";
+		String strObject2=new String("KOSMO 61기");
+		Date dateObject=new Date();
+		int number=100;
+		Teacher teacher=new Teacher("김봉두",55,"체육");
+		/*
+		 3]객체저장
+		 */
+		System.out.println(set.add(strObject1));//true반환
+		set.add(strObject2);
+		set.add(dateObject);
+		set.add(number);
+		set.add(teacher);
+		/*
+		 4]저장된 객체수 얻기
+		 */
+		System.out.println("[중복저장 전 객체수]:"+set.size());//5개
+		
+		/*
+		 5-1]기본클래스형 객체 중복저장
+		 */
+		System.out.println(set.add(strObject2)?"저장성공":"저장실패");
+		System.out.println("[중복(String)저장 후 객체수]:"+set.size());//5개
+	}
+
+}

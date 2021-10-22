@@ -1,0 +1,28 @@
+package ex17collection;
+
+import java.util.HashSet;
+
+import common.Student;
+
+public class E04HashSet2 {
+	public static void main(String[] args) {
+		
+		HashSet<Student> hashSet=new HashSet<Student>();
+		
+		Student s1=new Student("정우성",40,"2000-04");
+		Student s2=new Student("황정민",42,"2000-04");
+		Student s3=new Student("최민식", 44, "2000-04");
+		
+		hashSet.add(s1);
+		hashSet.add(s2);
+		hashSet.add(s3);
+		
+		System.out.println("hashSet의 크기"+hashSet.size());
+		
+		Student s3Copy =new Student("최민식", 44, "2000-04");
+		System.out.println("s3Copy저장여부:"+hashSet.add(s3Copy));
+		System.out.println("hashSet의 크기:"+hashSet.size());
+		
+	}
+
+}

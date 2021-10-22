@@ -1,0 +1,24 @@
+package common;
+
+public class Student extends Person {
+	private String stNumber;
+
+	public Student(String name, int age, String stNumber) {
+		super(name, age);
+		this.stNumber = stNumber;
+	}
+	@Override
+	public String getInfo() {
+		/*
+		 부모에서 정의한 getInfo()를 통해 이름, 나이까지의 문자열을
+		 반환받은 후 자식에서 확장한 학번을 연결해서 문자열을 완성함
+		 */
+		return super.getInfo()+",학번:"+stNumber;
+	}
+	@Override
+	public void showInfo() {
+		System.out.println("학생의 정보");
+		System.out.println(getInfo());
+		
+	}
+}

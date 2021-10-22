@@ -1,0 +1,10 @@
+package ex17collection;
+
+public class Ex04HashSet1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
