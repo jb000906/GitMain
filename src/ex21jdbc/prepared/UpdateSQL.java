@@ -35,6 +35,8 @@ public class UpdateSQL extends IConnectImpl{
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
+		
+		
 	finally {
 		close();
 	}
